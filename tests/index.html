@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<title>index</title>
+</head>
+<body>
+	<ul>
+	</ul>
+
+	<script>
+		var list = document.getElementsByTagName('ul')[0];
+		var links = ['dom', 'selector'];
+		for (var i = 0; i < links.length; i++) {
+			list.insertAdjacentHTML('beforeend', ['<li>', '<a href="' , links[i] , '.html">', links[i], '</a>', '</li>'].join(''));
+		}
+	</script>
+
+</body>
+</html>
