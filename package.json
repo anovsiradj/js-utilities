@@ -1,0 +1,29 @@
+{
+  "name": "anovsiradj-utilities",
+  "version": "0.0.1",
+  "description": "My utilities for Browser and Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anovsiradj/js-utilities.git"
+  },
+  "keywords": [
+    "browser",
+    "node.js",
+    "utilities"
+  ],
+  "author": "anovsiradj <anov.siradj22@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anovsiradj/js-utilities/issues"
+  },
+  "homepage": "https://github.com/anovsiradj/js-utilities#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "finalhandler": "^1.1.0",
+    "serve-static": "^1.13.1"
+  }
+}
