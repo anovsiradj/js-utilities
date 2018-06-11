@@ -12,7 +12,7 @@ module.exports = {
 
 		if (typeof data === 'string' && data.trim() === '') return true;
 
-		if (typeof data === 'number' && (Number.isFinite(data) === false || Number.isNaN(data) === true)) return true;
+		if (typeof data === 'number' && Number.isNaN(data) === true) return true;
 
 		// https://stackoverflow.com/a/32108184/3036312
 		if (typeof data === 'object' && data.constructor === Object && Object.keys(data).length === 0) return true;
