@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>pre-links</title>
+	<script src=""></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/custom-elements/1.2.0/custom-elements.min.js"></script>
+	<script src="pre-links.js?3"></script>
+</head>
+<body>
+
+<pre hidden>
+reference:
+/lorem/ipsum/foobar.html
+https://jsfiddle.net/anovsiradj/jnsve2zy/
+https://github.com/WebReflection/document-register-element
+https://www.html5rocks.com/en/tutorials/webcomponents/customelements/
+</pre>
+
+<pre is="pre-links">
+reference:
+/lorem/ipsum/foobar.html
+https://jsfiddle.net/anovsiradj/jnsve2zy/
+https://github.com/WebReflection/document-register-element
+</pre>
+
+<!-- not working -->
+<pre-links>
+reference:
+/lorem/ipsum/foobar.html
+https://jsfiddle.net/anovsiradj/jnsve2zy/
+https://github.com/WebReflection/document-register-element
+</pre-links>
+
+<script>
+	var el, content = document.querySelector('pre').innerHTML;
+
+	// not working
+	el = document.createElement('pre-links');
+	el.id = 'pre-links-1';
+	el.innerHTML = content;
+	document.body.appendChild(el);
+
+	el = document.createElement('pre','pre-links');
+	el.id = 'pre-links-2';
+	el.innerHTML = content;
+	document.body.appendChild(el);
+
+	// not working
+	el = document.createElement('pre', {is: 'pre-links'});
+	el.id = 'pre-links-3';
+	el.innerHTML = content;
+	document.body.appendChild(el);
+
+	// not working
+	el = document.createElement('pre-links', {is: 'pre'});
+	el.id = 'pre-links-4';
+	el.innerHTML = content;
+	document.body.appendChild(el);
+
+	// not working
+	el = document.createElement('pre');
+	el.setAttribute('is','pre-links');
+	el.innerHTML = content;
+	document.body.appendChild(el);
+
+	el = new CustomPreLinksElement;
+	el.innerHTML = content;
+	document.body.appendChild(el);
+
+	// not updated
+	el = new CustomPreLinksElement;
+	document.body.appendChild(el);
+	el.innerHTML = content;
+</script>
+</body>
+</html>
