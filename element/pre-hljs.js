@@ -17,7 +17,15 @@
 		if (element.dataset.lang) {
 			element.classList.add(element.dataset.lang);
 		}
-		hljs.highlightBlock(element);
+
+		if (element.dataset.ajax) {
+			$.get(element.innerText, function(result) {
+				element.innerText = result;
+				hljs.highlightBlock(element);
+			});
+		} else {
+			hljs.highlightBlock(element);
+		}
 	}
 
 	window.CustomPreHLJSElement = document.registerElement('pre-hljs', {
