@@ -11,6 +11,8 @@
 */
 
 (function() {
+	'use strict';
+	var pk = 'CustomPreLinksElement';
 	var newline = '\n';
 	function validate(text) {
 		if(/\<|\>/.test(text)) return false; // ignore tags
@@ -18,7 +20,8 @@
 		return false;
 	}
 	function link(text) {
-		return ['<a href="',text,'">',text,'</a>'].join('');
+		var href = text.replace(/\"/g,'&#34;');
+		return `<a href="${href}">${text}</a>`;
 	}
 	function init(element) {
 		var lines = element.innerHTML.split(newline), i, n;
@@ -27,15 +30,16 @@
 		}
 		element.innerHTML = lines.join(newline);
 	}
-	window.CustomPreLinksElement = document.registerElement('pre-links', {
+	window[pk] = document.registerElement('pre-links', {
 		extends: 'pre',
 		prototype: Object.create(
 			HTMLPreElement.prototype, {
-				//createdCallback: {value: function() { /*console.log(1,arguments,this);*/ }},
+				// createdCallback: {value: function() { /*console.log(1,arguments,this);*/ }},
 				attachedCallback: {value: function() { init(this); }},
 				//detachedCallback: {value: function() { /*console.log(3,arguments,this);*/ }},
-				//attributeChangedCallback: {value: function() { /*console.log(4,arguments,this);*/ }},
+				// attributeChangedCallback: {value: function() { console.log(4,arguments,this); }},
 			},
 		),
 	});
+	window[pk].prototype.PreLinksInit = function() { init(this); };
 })();

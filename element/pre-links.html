@@ -61,17 +61,21 @@ https://github.com/WebReflection/document-register-element
 	// not working
 	el = document.createElement('pre');
 	el.setAttribute('is','pre-links');
+	el.id = 'pre-links-5';
 	el.innerHTML = content;
 	document.body.appendChild(el);
 
 	el = new CustomPreLinksElement;
+	el.id = 'pre-links-6';
 	el.innerHTML = content;
 	document.body.appendChild(el);
 
-	// not updated
+	// not updated - need manual update
 	el = new CustomPreLinksElement;
+	el.id = 'pre-links-7';
 	document.body.appendChild(el);
 	el.innerHTML = content;
+	el.PreLinksInit();
 </script>
 </body>
 </html>
